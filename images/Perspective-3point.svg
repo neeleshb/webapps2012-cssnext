@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="402px" height="425px" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <path fill="none" stroke="blue" d="
+   M 229 97 L 339 143 313 297 166 363 102 261 82 120 z M 339 143 L 155 189 82 120
+   M 155 189 L 166 363 M 313 297 L 225 224 102 261 M 225 224 L 229 97" stroke-width="2.5" />
+</svg>

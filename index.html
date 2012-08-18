@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <title>CSS Next</title>
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+
+<body>
+<div id="slidegroup">
+    <!-- opening slide -->
+    <div class="step slide">
+	  <img width="1100" height="700" style="position:absolute;top:-1px;left:-1px;border-radius:35px;"  src="images/css3img.jpeg"></img>
+    </div>
+    <!-- Title of the presentation. -->
+    <div class="step slide section">
+	  <aside class="css3bar">
+	  	<img class="css3img" src="images/css3.png" />
+	  </aside>
+	  <div class="heading">
+	    <div class="title">CSS Next</div>
+	    <div class="subtitle">3D. Transforms. Transitions. Animations.</div>
+	    <div class="presenter">Neelesh Bodas</div>
+		<div class="company">Software Engineer, Google.</div>
+	  </div>	
+    </div>
+    <!-- Theory slide on CSS3 -->
+    <div class="slide">
+       <hgroup>
+	     <h2>CSS3</h2>
+	     <h3>what's new?</h3>
+	     <div class="underline"></div>
+	     <div class="round"></div>
+	   </hgroup>
+	   <article>
+		<ul class="newul">
+			<li>border radius, border image</li>
+			<li>reflection</li>
+			<li>text shadows, box shadows</li>
+			<li>text stokes, text fills</li>
+			<li>background clip, multiple backgrounds</li>
+			<li>HSL colors, RGBA colors, opacity</li>
+			<li>linear and radial gradients</li>
+			<li>word wrap, overflow using ellipsis</li>
+			<li>multiple columns</li>	
+			<li>flexible box model</li>
+			<li>web fonts</li>
+			<li>media queries</li>
+			<li>new selectors</li>
+			<li>counter increments</li>
+			<li>grid columns, grid rows</li>
+			<li style="color:#6699FF"><b>transforms</b></li>
+			<li style="color:#6699FF"><b>transitions</b></li>
+			<li style="color:#6699FF"><b>animations</b></li>
+		</ul>
+	   </article>
+    </div>
+
+<!-- defns -->
+	<div class="slide">
+       <hgroup>
+	     <h2>Definitions</h2>
+	     <div class="underline"></div>
+	     <div class="round"></div>
+	   </hgroup>
+	  <article>
+		<div class="defn" >
+			<div class="defntitle">Transformation</div>
+			<div class="defncontent">Changing the position and/or shape of an element - by translating, scaling, rotating and/or skewing with respect to certain points or axes.</div>
+		</div>
+		<div class="defn">
+			<div class="defntitle">Transition</div>
+			<div class="defncontent">The process of changing the state of an element - over a period of time, under the effect of a specified conversion function and delay.</div>
+		</div>
+		<div class="defn">
+			<div class="defntitle">Animation</div>
+			<div class="defncontent">One or more transitions - repeated one or more times, either in same or different orders.</div>
+		</div>
+	</article>
+    </div>
+    <!-- Theory slide on Transformations: translate, rotate, scale, skew -->
+    <div class="slide">
+       <hgroup>
+	     <h2>Transforms</h2>
+	     <h3>translate, rotate, scale, skew</h3>
+	     <div class="underline"></div>
+	     <div class="round"></div>
+	   </hgroup>
+	   <article>
+<pre class="code">
+-webkit-transform: translateX(<span id="ex1txid">0</span>px);
+-webkit-transform: translateY(<span id="ex1tyid">0</span>px);
+-webkit-transform: rotateX(<span id="ex1rxid">0</span>deg);
+-webkit-transform: rotateY(<span id="ex1ryid">0</span>deg);
+-webkit-transform: rotateZ(<span id="ex1rzid">0</span>deg);
+-webkit-transform: scaleX(<span id="ex1sxid">1</span>);
+-webkit-transform: scaleY(<span id="ex1syid">1</span>);
+-webkit-transform: skewX(<span id="ex1kxid">0</span>deg);
+-webkit-transform: skewY(<span id="ex1kyid">0</span>deg);
+-webkit-backface-visibility:<span id="ex1bfvid">visible</span>;
+</pre>
+        <span id="ex1sliders">
+		  <input type="range" id="ex1tx" value="0" max="300" min="-300"class="ex1tx" onchange="main.runEx1(this);" />
+		  <input type="range" id="ex1ty" value="0" max="300" min="-300" class="ex1ty" onchange="main.runEx1(this);" />
+		  <input type="range" id="ex1rx" value="0" max="360" min="-360" class="ex1rx" onchange="main.runEx1(this);" />
+		  <input type="range" id="ex1ry" value="0" max="360" min="-360" class="ex1ry" onchange="main.runEx1(this);" />
+		  <input type="range" id="ex1rz" value="0" max="360" min="-360" class="ex1rz" onchange="main.runEx1(this);" />
+		  <input type="range" id="ex1sx" value="10" max="20" min="1" class="ex1sx" onchange="main.runEx1(this);" />
+		  <input type="range" id="ex1sy" value="10" max="20" min="1" class="ex1sy" onchange="main.runEx1(this);" />
+		  <input type="range" id="ex1kx" value="0" max="180" min="-180" class="ex1kx" onchange="main.runEx1(this);" />
+		  <input type="range" id="ex1ky" value="0" max="180" min="-180" class="ex1ky" onchange="main.runEx1(this);" />
+		</span>
+		<span class="ex1bfv">
+		  <input type="radio" name="ex1bfv" value="hidden" onchange="document.getElementById('ex1bfvid').innerHTML='hidden';document.getElementById('ex1demo').style.webkitBackfaceVisibility='hidden';">hidden</input>&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="ex1bfv" value="visible" checked onchange="document.getElementById('ex1bfvid').innerHTML='visible';document.getElementById('ex1demo').style.webkitBackfaceVisibility='visible';" checked>visible</input>
+		</span>
+		<a href="javascript:void(0);" id="ex1reset" onclick="main.resetEx1();">reset</a>
+		<div id="ex1demo">HTML</div>
+	  </article>
+    </div>
+  <!-- Rainbow spiral -->
+    <div class="step slide">
+       <hgroup>
+	     <h2>Transforms</h2>
+	     <h3>Demo: Rainbow Spiral</h3>
+	     <div class="underline"></div>
+	     <div class="round"></div>
+	   </hgroup>
+	   <article>
+	     <div id="rainbowOuter"></div>
+		 <div class="rainbowTextDiv">
+			<span class="rainbowText">Number of figures:&nbsp;&nbsp;&nbsp;&nbsp;</span><input type="range" class="rainbowSlider" id="rainbowSlider1" value="60" max="200" min="4" onchange="main.renderRainbow();"/>
+			<br/>
+			<span class="rainbowText">Angle of rotation:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type="range" class="rainbowSlider" id="rainbowSlider2" value="15" max="360" min="0" onchange="main.renderRainbow();"/>
+		</div>
+
+
+    </div>
+
+<!-- Theory slide2 on Transformations : transform origin -->
+	 <div class="slide">
+	       <hgroup>
+		     <h2>Transforms</h2>
+		     <h3>transform origin</h3>
+			 <div class="underline"></div>
+		     <div class="round"></div>
+		   </hgroup>
+		   <article>
+	<pre class="code">
+div {
+    width: 150px;
+    height: 150px;
+    -webkit-transform: rotateZ(<span id="ex3ryid">-60</span>deg);
+    -webkit-transform-origin: <span id="ex3toxid">75</span>px <span id="ex3toyid">75</span>px;
+}
+</pre>
+            <input id="ex3ry" type="range" max="360" min="-360" value="-60" onchange="main.runEx3a(this);" />
+            <input id="ex3tox" type="range" max="300" min="-300" value="75" onchange="main.runEx3b(this);"/>
+            <input id="ex3toy" type="range" max="300" min="-300" value="75" onchange="main.runEx3b(this);"/>
+            <div id="ex3demo"></div>
+            <div id="ex3origin"></div>
+		  </article>
+	    </div>
+    <div class="step slide">
+		<hgroup>
+		     <h2>Transforms</h2>
+		     <h3>demo: photo wheel</h3>
+			 <div class="underline"></div>
+		     <div class="round"></div>
+		 </hgroup>
+		<article>
+			<div class="ex9outer">
+			   <div class="ex9inner">
+			     <img src="images/whale.jpeg" width="340" >
+			     <img src="images/elephant.jpeg" width="340">
+			     <img src="images/lion.jpeg" width="340" >
+			     <img src="images/peacock.jpeg" width="340" >
+			     <img src="images/cobra.jpeg" width="340" >
+			   </div>
+			</div>
+			<span style="position:absolute;font-size:18px;top: 620px;left: 300px;color:#800000;">inspiration:&nbsp;&nbsp;<a href="http://www.the-art-of-web.com/css/3d-transforms/" target="_blank">http://www.the-art-of-web.com/css/3d-transforms/</a></span>
+		</article>
+	</div>
+<script>
+var angle = 0;
+var images = document.querySelectorAll(".ex9inner img");
+for (var i = 0; i < images.length; ++i) {
+	images[i].style.webkitTransform = "rotateY(" + angle + "deg) translateX(270px)";
+	angle -= 72;
+}
+</script>
+	<!-- transform: rotate3d -->
+	 <div class="slide">
+		 <hgroup>
+		     <h2>Transforms</h2>
+		     <h3>rotate3d</h3>
+			 <div class="underline"></div>
+		     <div class="round"></div>
+		 </hgroup>
+		 <article>
+<pre class="code">
+div {
+    rotate3d(<span id="ex7xid">1</span>, <span id="ex7yid">1</span>, <span id="ex7zid">1</span>, <span id="ex7did">60</span>deg);<span style="color:#0000FF">// v = <span id="ex7xid2">1</span>i + <span id="ex7yid2">1</span>j + <span id="ex7zid2">1</span>k</span>
+}
+</pre>
+       <div id="ex7outer">
+	     <input type="range" id="ex7x" max="50" min="0" value="1" onchange="main.runEx7();" />&nbsp;&nbsp;
+         <input type="range" id="ex7y" max="50" min="0" value="1" onchange="main.runEx7();" />&nbsp;&nbsp;
+	     <input type="range" id="ex7z" max="50" min="0" value="1" onchange="main.runEx7();" />&nbsp;&nbsp;
+    	 <input type="range" id="ex7d" max="360" min="-360" value="60" onchange="main.runEx7();" />&nbsp;&nbsp;
+       </div>
+	     <div id="ex7demo" style="-webkit-text-stroke:1px #00F; font-size:88px;padding-top:70px;-webkit-text-fill-color: #FFF; background: -webkit-linear-gradient(left top, white 0%, #9FF 100%);border:4px solid #00FFFF; height:130px; width:200px; position:absolute; top:350px;left:300px;-webkit-transform:rotate3d(1,1,1,60deg);">CSS3</div>
+       </article>
+     </div>
+	<!-- transition demo - lightout-->
+	    <div class="step slide">
+	      <hgroup>
+	        <h2>Transitions</h2>
+	        <h3>Demo: Lights Out !</h3>
+	        <div class="underline"></div>
+	        <div class="round"></div>
+	      </hgroup>
+	      <article>
+		    <div id="ex6board"></div>
+		    <input class="ex6newbtn" type="button" value="new game" onclick="main.runEx6.newGame();"/>
+		  </article>
+	    </div>
+	   <!-- Theory slide3 on Transformations - perspective -->
+	<div class="step slide">
+		<hgroup>
+		     <h2>Transforms</h2>
+		     <h3>Theory: perspectives</h3>
+			 <div class="underline"></div>
+		     <div class="round"></div>
+		   </hgroup>
+		   <article>
+			<ul>
+				<li><b>Perspective</b>: Representation of a 3D object on a 2D surface as seen by the eye.</li>
+				<li><b>Perspective ≠ Projection</b>: Projection is the representation of a 3D object on a 2D surface.</li>
+				<li><b>CSS3 Support</b>:<br/>
+					<ul style="padding-left:60px;line-height:1em;font-size:20px;">
+						<li><span style="font-family:courier;font-weight:bold;">perspective</span>: Number of pixels a 3D element is placed away from the eye.</li>
+						<li><span style="font-family:courier;font-weight:bold;">perspective-origin</span>: X and Y displacement of the eye in the plane of view.</li>
+					</ul></li>
+				<li><b>Two rules of thumb</b></li>
+					<ul style="padding-left:60px;line-height:1em;font-size:20px;">
+						<li>Higher the value of perspective, the transformed object appears more identical to its untransformed shape.</li>
+						<li>Higher the value of perspective, smaller is the object size.</li>
+					</ul></li>
+				<li><b>Three types of perspectives</b>: Based on number of <i>vanishing points</i> in the image.</li>	
+			</ul>
+			<div style="margin-top: -30px;margin-left:100px;">
+			<img src="images/Perspective-1point.svg" width="200" />
+			<img src="images/Perspective-2point.svg" width="200" />
+			<img src="images/Perspective-3point.svg" width="200" />
+			<span style="position:absolute;top:640px; color:#800000; font-size:18px;left:220px;">one-point</span>
+			<span style="position:absolute;top:640px; color:#008000; font-size:18px;left:420px;">two-point</span>	
+			<span style="position:absolute;top:640px; color:#000080; font-size:18px;left:690px;">three-point</span>	
+			</div>	
+		</article>
+	</div>
+				
+					
+<!--
+	Information:
+	Perspective is the representation of a 3D object on a 2D surface as seen by the eye. 
+	For example, consider that you are talking picture of a scenery using a camera. Then, what gets imprinted on the film is the 2D perspective of the 3D scenery.
+
+	Note the perspective and projection are two different concepts. 
+	Projection is the representation of a 3D object on a 2D surface.
+	Prerspective is the view w.r.t the human eye. 
+
+	The CSS3 property "perspective" takes the value as number of pixels a 3D element is placed away from the point of view (i.e. the eye). 
+	The "perspective-orgin" property takes the value as X and Y displacement of the eye in the plane of view.
+
+	Three quick rules of thumb:
+	a) Higher the value of perspective, the transformed object appears more identical to its untransformed shape.
+	b) Higher the value of perspective, smaller is the object size.
+
+	There are three primary types of perspectives - 1 point, 2 point and 3 point. This distinction is based on the number of vanishing points in the image.
+
+	A vanishing point is one of possibly several points in a 2D image where lines that are parallel in the 3D source converge.
+
+	a 3 point perspective is where there are three vanishing points. 
+	The CSS perspective is powerful enough to render an image in the 3point perspective. Of course, it can be used for 1 point and 2 point perspectives as well.
+-->
+     <div class="slide">
+       <hgroup>
+	     <h2>Transforms</h2>
+	     <h3>perspective, perspective-origin</h3>
+		 <div class="underline"></div>
+	     <div class="round"></div>
+	   </hgroup>
+	   <article>
+<pre class="code">
+#outerDiv {
+    -webkit-perspective: <span id="ex2pid">1000</span>;
+    -webkit-perspective-origin: <span id="ex2poxid">600</span>px <span id="ex2poyid">100</span>px;
+}
+#innerDiv {
+    -webkit-transform: rotateX(45deg);
+}
+</pre>
+       <input id="ex2p" type="range" max="10000" min="0" value="1000" onchange="main.runEx2a(this);"/>
+       <input id="ex2pox" type="range" max="5000" min="-5000" value="600" onchange="main.runEx2b(this);" />
+       <input id="ex2poy" type="range" max="5000" min="-5000" value="100" onchange="main.runEx2b(this);" />
+	   <div id="ex2Outer">
+	      <div id="ex2Inner">HTML</div>
+	    </div>
+ 	  </article>
+    </div>
+<!-- Demo rotating cube -->
+   <div class="slide">
+	 <hgroup>
+	     <h2>Transforms</h2>
+	     <h3>Demo: Rotating Cube</h3>
+		 <div class="underline"></div>
+	     <div class="round"></div>
+	 </hgroup>
+	 <article>
+	    <div id="cubeOuter" class="cubeOuter">
+		  <div id="cubeInner" class="cubeInner">
+		    <div id="faceA" class="cubeFace cubeFaceA">
+			</div>
+			<div id="faceB" class="cubeFace cubeFaceB">
+			  <div style="height:130px;"></div>CSS3 Rocks!	
+			  </div>
+			  <div id="faceC" class="cubeFace cubeFaceC"><div style="height:50px;"></div>
+			    <img src="images/css3.png" width="200"></img>	
+			  </div>
+			  <div id="faceD" class="cubeFace cubeFaceD"><div style="height:50px;"></div>
+		        <img src="images/AngryRedBird.png" width="200"></img>
+              </div>
+              <div id="faceE" class="cubeFace cubeFaceE">&nbsp;opaque</div>
+			  <div id="faceF" class="cubeFace cubeFaceF"></div>
+			</div>
+		 </div>
+     </article>
+		<script>
+		setInterval(
+		  function() {
+		    document.getElementById('faceF').innerHTML = "<br/><br/><br/>" + new Date().toString().split(" ")[4];
+		  }
+		  , 1000);
+
+		</script>
+    </div>
+<!-- Rotating cube explained 1 of 2 -->
+   <div class="step slide">
+	<hgroup>
+		<h2>Transforms</h2>
+		<h3>Rotating Cube Explained (1 of 2)</h3>
+		 <div class="underline"></div>
+	     <div class="round"></div>
+	</hgroup>
+	<article>
+<pre class="code">
+&lt;div id="cubeOuter" class="cubeOuter"&gt;
+    &lt;div class="cubeFace cubeFaceA"&gt; 1 &lt;/div&gt;
+    &lt;!-- other five faces go here --&gt;
+&lt;/div&gt;
+</pre>
+<pre class="code">
+.cubeFaceA { <b>-webkit-transform: rotateY(0deg);</b> }
+.cubeFaceB { <b>-webkit-transform: rotateY(-90deg);</b> }
+.cubeFaceC { <b>-webkit-transform: rotateY(180deg);</b> }
+.cubeFaceD { <b>-webkit-transform: rotateY(90deg);</b> }
+.cubeFaceE { <b>-webkit-transform: rotateX(90deg);</b> }
+.cubeFaceF { <b>-webkit-transform: rotateX(-90deg);</b> }	
+</pre>	
+      <div class="cubeEx cubeEx1">1</div>
+      <div class="cubeEx cubeEx2">2</div>
+      <div class="cubeEx cubeEx3">3</div>
+      <div class="cubeEx cubeEx4">4</div>
+      <div class="cubeEx cubeEx5">5</div>
+      <div class="cubeEx cubeEx6">6</div>
+<script>
+    document.querySelector(".cubeEx6").addEventListener("mouseover", function() {
+	document.querySelector(".cubeEx6").classList.add("cubeEx6H"); 
+	document.querySelector(".cubeEx5").classList.add("cubeEx5H"); 
+	document.querySelector(".cubeEx4").classList.add("cubeEx4H"); 
+	document.querySelector(".cubeEx3").classList.add("cubeEx3H"); 
+	document.querySelector(".cubeEx2").classList.add("cubeEx2H"); 
+	document.querySelector(".cubeEx1").classList.add("cubeEx1H"); 
+}, false);
+    document.querySelector(".cubeEx6").addEventListener("mouseout", function() {
+	document.querySelector(".cubeEx6").classList.remove("cubeEx6H"); 
+	document.querySelector(".cubeEx5").classList.remove("cubeEx5H"); 
+	document.querySelector(".cubeEx4").classList.remove("cubeEx4H"); 
+	document.querySelector(".cubeEx3").classList.remove("cubeEx3H"); 
+	document.querySelector(".cubeEx2").classList.remove("cubeEx2H"); 
+	document.querySelector(".cubeEx1").classList.remove("cubeEx1H"); 
+}, false);
+</script>
+     </article>
+   </div>
+   <div class="step slide">
+   	<hgroup>
+		<h2>Transforms</h2>
+		<h3>Rotating Cube Explained (2 of 2)</h3>
+		 <div class="underline"></div>
+	     <div class="round"></div>
+	</hgroup>
+	 <article>
+<pre class="code">
+.cubeOuter {
+    -webkit-perspective: 1200;
+    -webkit-perspective-origin: 300px 200px;
+    -webkit-transition: -webkit-transform 2s;
+}
+.cubeFaceA { -webkit-transform: rotateY(0deg) <b>translateZ(150px);</b> }
+.cubeFaceB { -webkit-transform: rotateY(-90deg) <b>translateZ(150px);</b> }
+.cubeFaceC { -webkit-transform: rotateY(180deg) <b>translateZ(150px);</b> }
+.cubeFaceD { -webkit-transform: rotateY(90deg) <b>translateZ(150px);</b> }
+.cubeFaceE { -webkit-transform: rotateX(90deg) <b>translateZ(150px);</b> }
+.cubeFaceF { -webkit-transform: rotateY(-90deg) <b>translateZ(150px);</b> }
+</pre>
+		<div class="cubeFxOuter">
+		<div class="cubeFx cubeFx1">1</div>
+		<div class="cubeFx cubeFx2">2</div>
+		<div class="cubeFx cubeFx3">3</div>
+		<div class="cubeFx cubeFx4">4</div>
+		<div class="cubeFx cubeFx5">5</div>
+		<div class="cubeFx cubeFx6">6</div> 
+		</div>
+		<a target="_blank" href="http://jsbin.com/iwodux/4/edit" style="font-size:16px;line-height:1.7em;position:absolute; top: 500px;left: 670px;">non-commutative &nbsp;transformations</a>
+		<span style="font-size:16px;line-height:1.7em;position:absolute; top: 540px;left: 630px;">
+			 <input type="checkbox" onclick="var nd = document.querySelector('.cubeFxOuter'); this.checked ? nd.classList.add('cubeFxOuterP') : nd.classList.remove('cubeFxOuterP');"  />use perspective.&nbsp;&nbsp;&nbsp;&nbsp;
+			 <input type="checkbox" onclick="var nd = document.querySelector('.cubeFxOuter'); this.checked ? nd.classList.add('cubeFxOuterT') : nd.classList.remove('cubeFxOuterT');"  />transform origin.
+		</span>
+		</slide>
+		<script>
+		    document.querySelector(".cubeFx6").addEventListener("mouseover", function() {
+			document.querySelector(".cubeFx6").classList.add("cubeFx6H"); 
+			document.querySelector(".cubeFx5").classList.add("cubeFx5H"); 
+			document.querySelector(".cubeFx4").classList.add("cubeFx4H"); 
+			document.querySelector(".cubeFx3").classList.add("cubeFx3H"); 
+			document.querySelector(".cubeFx2").classList.add("cubeFx2H"); 
+			document.querySelector(".cubeFx1").classList.add("cubeFx1H"); 
+		}, false);
+		    document.querySelector(".cubeFx6").addEventListener("mouseout", function() {
+			document.querySelector(".cubeFx6").classList.remove("cubeFx6H"); 
+			document.querySelector(".cubeFx5").classList.remove("cubeFx5H"); 
+			document.querySelector(".cubeFx4").classList.remove("cubeFx4H"); 
+			document.querySelector(".cubeFx3").classList.remove("cubeFx3H"); 
+			document.querySelector(".cubeFx2").classList.remove("cubeFx2H"); 
+			document.querySelector(".cubeFx1").classList.remove("cubeFx1H"); 
+		}, false);
+
+		</script>
+	 </article>	
+	</div>
+     <!-- Theory slide on Transitions -->
+    <div class="step slide">
+       <hgroup>
+	     <h2>Transitions</h2>
+	     <h3>transition</h3>
+	     <div class="underline"></div>
+	     <div class="round"></div>
+	   </hgroup>
+	   <article>
+<pre class="code">
+div {
+    -webkit-transition: 
+        left 3s cubic-bezier(0.1, 1, 1, 0.5), 
+        -webkit-transform 3s linear, 
+        border-radius 3s ease-out 3s;
+}
+div:active {
+    left: 800px;
+    -webkit-transform: rotate(180deg);
+    border-radius: 100px;
+}
+</pre>
+         <div id="ex4demo">CSS3</div>
+         <span style="position:absolute;top:490px;left:60px;font-size: 18px;">
+	       <input id="ex4checkbox" type="checkbox" onclick="if (this.checked) document.getElementById('ex4demo').classList.add('ex4transition'); else document.getElementById('ex4demo').classList.remove('ex4transition');"/>enable transition
+	     </span>
+         <a target="_blank" href="http://www.roblaplaca.com/examples/bezierBuilder/" style="font-size:17px;position:absolute;top:490px;left:670px;">bezier builder</a>
+         <a target="_blank" href="http://www.romancortes.com/ficheros/page-flip.html" style="font-size:17px;position:absolute;top:490px;left:790px;">page flip effect</a>
+	   </article>
+    </div>
+
+    <!-- Theory slide on Animations -->
+    <div class="step slide">
+       <hgroup>
+	     <h2>Animations</h2>
+	     <h3>keyframes</h3>
+	     <div class="underline"></div>
+	     <div class="round"></div>
+	   </hgroup>
+       <article>
+<pre class="code" style="font-size:18px;">
+<b>@-webkit-keyframes</b> move {
+    from { left: 0px; }
+    50% { width: 550px; left: 0px; background-color: #6699FF;}
+    100% { width: 50px; left: 500px; }
+}
+div {
+    <b>-webkit-animation-name</b>: move;
+    <b>-webkit-animation-duration</b>: <span id="ex5wadid">2</span>s;
+    <b>-webkit-animation-timing-function</b>: cubic-bezier(0.9, 0.1, 0.1, 0.9);
+    <b>-webkit-animation-delay</b>: 4s; 
+    <b>-webkit-animation-iteration-count</b>: infinite;
+    <b>-webkit-animation-direction</b>: alternate;
+    <b>-webkit-animation-fill-mode</b>: forwards;
+}
+</pre>
+     <div id="ex6demo"></div>
+     <a target="_blank" href="http://andrew-hoyer.com/experiments/walking/#" style="font-size:18px;position:absolute;top:640px; left:800px;">walking man</a>
+     </article>
+   </div>
+	<!-- Infinite zoom -->
+   <div class="step slide">
+      <hgroup>
+	     <h2>Animations</h2>
+	     <h3>demo: infinite zoom</h3>
+	     <div class="underline"></div>
+        <div class="round"></div>
+	   </hgroup>
+	   <article>
+	   <div class="zoomDemo">
+	     <img class="zoomImage" src="images/clock.jpg" width="500"></img>
+	   </div>
+	   <span class="zoomSource">
+	     image:&nbsp;&nbsp;<a target="_blank" href="http://www.flickr.com/photos/robbie73/3387189144/sizes/l/in/photostream">http://www.flickr.com/photos/robbie73/3387189144/sizes/l/in/photostream</a>
+      </span>
+	  </article>
+   </div>
+	<!-- 3D effect -->
+	<div class="step slide">
+		<hgroup>
+		     <h2>Adding 3D effects</h2>
+		     <h3>common techniques</h3>
+		 	<div class="underline"></div>
+		     <div class="round"></div>
+		   </hgroup>
+		<article>
+			<ul class="tdul" style="font-size: 28px;margin-left: 50px;">
+				<li>Perspective</li>
+				<li>Graphics</li>
+				<li>Shadows</li>
+				<li>Focus</li>
+				<li>Color Shading</li>
+				<li>Opacity</li>
+				<li>Size and Placement</li>
+				<li>Reflection</li>
+			</ul>
+			<a style="position:absolute;top:600px;left: 600px;font-size:20px;" href="http://blog.creativityden.com/the-six-fundamental-ways-of-adding-depth-to-your-designs/" target="_blank">six ways of adding depth to designs</a>
+	   </article>
+	   </div>
+    <!-- Rotating chrome  -->
+    <div class="step slide">
+       <hgroup>
+	     <h2>Putting it all together</h2>
+	     <h3>Demo: Rotating chrome box</h3>
+	     <div class="underline"></div>
+         <div class="round"></div>
+	   </hgroup>
+	   <article>
+		 <div class="ex5container">
+		   <div class="ex5panel ex5one">
+		     <span>1</span>
+		   </div>
+		   <div class="ex5panel ex5two">
+		     <span>2</span>
+		   </div>
+		   <div class="ex5panel ex5three">
+		     <span>3</span>
+		   </div>
+		   <div class="ex5panel ex5four">
+		     <span>4</span>
+		   </div>
+		   <div class="ex5panel ex5logo">
+		   </div>
+	   </article>
+    </div>
+	
+
+    <!-- Some more demos -->
+    <div class="step slide">
+       <hgroup>
+	     <h2>Some more demos</h2>
+	     <div class="underline"></div>
+	     <div class="round"></div>
+	   </hgroup>
+    <article>
+        <div class="moredemo"><a target="_blank" href="https://developer.mozilla.org/media/uploads/demos/T/a/Tayo.w/a93500a0a8e55190f05cfc8032f1f6bd/pure-css3-animated-f_1344346416_demo_package/index.html">CSS3 Fish tank</a></div>
+        <div class="moredemo"><a target="_blank" href="https://developer.mozilla.org/en-US/demos/detail/css3-only-clock/launch">CSS3 clock</a></div>
+        <div class="moredemo"><a target="_blank" href="https://developer.mozilla.org/en-US/demos/detail/flower-power/launch">Flower power</a></div>
+        <div class="moredemo"><a target="_blank" href="https://developer.mozilla.org/en-US/demos/detail/planetary-system/launch">Planetory system</a></div>
+        <div class="moredemo"><a target="_blank" href="http://www.paulrhayes.com/experiments/parallax/">Parallax</a></div>
+        <div class="moredemo"><a target="_blank" href="http://media.24ways.org/2009/14/5/index.html">Polaroid gallery</a></div>
+        <div class="moredemo"><a target="_blank" href="http://www.zurb.com/playground/osx-dock">Max OS-X doc</a></div>
+        <div class="moredemo"><a target="_blank" href="http://media.24ways.org/2009/15/space.html">Space</a></div>
+        <div class="moredemo"><a target="_blank" href="http://www.webkit.org/blog-files/3d-transforms/poster-circle.html">Poster circle</a></div>
+        <div class="moredemo"><a target="_blank" href="http://www.the-art-of-web.com/css/bouncing-ball-animation/">Bouncing ball</a></div>
+        <div class="moredemo"><a target="_blank" href="http://www.the-art-of-web.com/css/css-animation/">Flying rocket</a></div>
+        <div class="moredemo"><a target="_blank" href="http://demo.tutorialzine.com/2009/12/colorful-clock-jquery-css/demo.html">Colorful Clock</a></div>
+        <div class="moredemo"><a target="_blank" href="http://www.webkit.org/blog-files/3d-transforms/morphing-cubes.html">Morphing cubes</a></div>
+        <div class="moredemo"><a target="_blank" href="http://www.satine.org/research/webkit/snowleopard/snowstack.html">Snow Stack</a></div>
+        <div class="moredemo"><a target="_blank" href="http://development.tobypitman.com/css/menu.html">Tabbed menu using CSS</a></div>
+        <div class="moredemo"><a target="_blank" href="http://www.gesteves.com/experiments/starwars.html">Star wars crawl</a></div>
+    </article>
+   </div>
+	
+    <!-- browser support -->
+    <div class="step slide">
+       <hgroup>
+	     <h2>One thing to remember</h2>
+	     <h3>vender prefix</h3>
+	     <div class="underline"></div>
+	     <div class="round"></div>
+		<article>
+			<div style="height:50px;"></div>
+			<img src="images/ie.png" height="120" width="120" style="margin:20px;" />
+			<img src="images/ff.png" height="120" width="120" style="margin:20px;" />
+			<img src="images/cr.png" height="120" width="120" style="margin:20px;margin-left:40px;" />
+			<img src="images/saf.png" height="120" width="120" style="margin:20px;margin-left:60px;" />
+			<img src="images/op.png" height="120" width="120" style="margin:20px;" />
+			<div style="height:0px;"></div>
+			<div class="iePrefix">-ms-</div>
+			<div class="mozPrefix">-moz-</div>
+			<div class="crPrefix">-webkit-</div>
+			<div class="safPrefix">-webkit-</div>
+			<div class="opPrefix">-o-</div>
+
+		</article>
+	   </hgroup>
+    </div>
+
+    <!-- final slide-->
+    <div class="step slide" style="background-color:#0E91B5!important">
+       	<img src="images/html5_sticker.png" width="800" style="position: absolute;top:130px;left:140px;"></img>
+    </div>
+</div> <!-- #slidegroup -->
+<script src="js/main.js"></script>
+<script>var main = main();</script>
+</body>
+</html>
+
